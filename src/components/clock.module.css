@@ -1,0 +1,84 @@
+.baseForClock {
+    margin: auto;
+    padding: 0;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.digitalClock { 
+    font-size: 0;
+}
+
+.digitalClock > div {
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.digitalClock > div > span {
+    display: inline-block;
+    width: 70px;
+    margin: 0 2px;
+}
+
+.digitalClock > div > span,
+.digitalClock > div::after {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100px;
+    font-weight: 800;
+    text-align: center;
+    color: #eeeeee;
+    text-shadow: 
+        3px 3px 10px rgba(0,0,0,.2),
+        -3px -3px 10px rgba(255,255,255,.3)
+    ;
+}
+
+.digitalClock > div.hour::after,
+.digitalClock > div.minute::after {
+    content: ':';
+    position: absolute;
+    left: 148px;
+    width: 30px;
+}
+
+.digitalClock > div > span.show {
+    animation: show .5s ease-in forwards
+}
+
+.digitalClock > div > span.hide {
+    animation: hide .5s ease-out forwards
+}
+
+@keyframes show {
+    0% {
+        text-shadow: 
+            0 0 0 rgba(0,0,0,.2),
+            0 0 0 rgba(255,255,255,1)
+        ;
+    }
+    100% {
+        text-shadow: 
+            3px 3px 10px rgba(0,0,0,.2),
+            -3px -3px 10px rgba(255,255,255,1)
+        ;
+    }
+}
+
+@keyframes hide {
+    0% {
+        text-shadow: 
+            3px 3px 10px rgba(0,0,0,.2),
+            -3px -3px 10px rgba(255,255,255,1)
+        ;
+    }
+    100% {
+        text-shadow: 
+            0 0 0 rgba(0,0,0,.2),
+            0 0 0 rgba(255,255,255,1)  
+        ;
+    }
+}
